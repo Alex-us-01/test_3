@@ -38,7 +38,7 @@
     position: fixed;
     width: 30px;
     height: 30px;
-    background-image: url('/src/img/hammer.png');
+    background-image: url(../img/hammer.png);
     background-size: cover;
     background-repeat: no-repeat;
     pointer-events: none;
