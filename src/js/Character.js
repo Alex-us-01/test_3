@@ -1,19 +1,30 @@
 export default class Character {
-  constructor() {
-    this.character = 'active';
-    this.position = -1;
-  }
-
-  randomPosition(size) {
-    const divs = document.querySelectorAll('.cell');
-
-    const randomInt = Math.floor(Math.random() * (size ** 2));
-    if (this.position >= 0) {
-      divs[this.position].classList.remove(this.character);
-      this.position = -1;
+    constructor() {
+        this.character = document.createElement('img');
+        this.character.src = goblinImage;
+        this.character.alt = 'goblin';
+        this.currentPosition = -1;
     }
 
-    divs[randomInt].classList.add(this.character);
-    this.position = randomInt;
-  }
+    placeCharacter(cells) {
+        const randomCell = this.getRandomInt(0, cells.length);
+        cells[randomCell].append(this.character);
+        this.currentPosition = randomCell;
+    }
+
+    moveCharacter(cells) {
+        let newPosition = this.currentPosition;
+        
+        while (newPosition === this.currentPosition) {
+            newPosition = this.getRandomInt(0, cells.length);
+        }
+        
+        cells[this.currentPosition].removeChild(this.character);
+        cells[newPosition].append(this.character);
+        this.currentPosition = newPosition;
+    }
+
+    getRandomInt(min, max) {
+        return Math.floor(Math.random() * (max - min)) + min;
+    }
 }

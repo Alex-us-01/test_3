@@ -1,21 +1,20 @@
+import goblinImage from '../img/goblin.png';
+
 export default class Board {
-  constructor() {
-    this.board = null;
-  }
-
-  createBoard(number) {
-    const board = document.querySelector('.board');
-
-    for (let i = 0; i < Math.floor(number) ** 2; i += 1) {
-      const cell = document.createElement('div');
-      cell.classList.add('cell');
-      board.appendChild(cell);
+    constructor() {
+        this.board = document.getElementById('gameField');
+        this.fieldSize = 4;
     }
-    this.board = board;
-  }
 
-  getBoard(number) {
-    this.createBoard(number);
-    return this.board;
-  }
+    createGrid() {
+        for (let i = 0; i < this.fieldSize * this.fieldSize; i++) {
+            const cell = document.createElement('div');
+            cell.classList.add('cell');
+            this.board.append(cell);
+        }
+    }
+
+    getRandomInt(min, max) {
+        return Math.floor(Math.random() * (max - min)) + min;
+    }
 }
