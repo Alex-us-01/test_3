@@ -226,5 +226,7 @@
 
 import GamePlay from './GamePlay';
 
-const game = new GamePlay();
-game.startGame();
+document.addEventListener('DOMContentLoaded', () => {
+    const game = new GamePlay();
+    game.startGame();
+});

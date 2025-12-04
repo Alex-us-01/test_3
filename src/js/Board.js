@@ -1,8 +1,6 @@
-import goblinImage from '../img/goblin.png';
-
 export default class Board {
     constructor() {
-        this.board = document.getElementById('gameField');
+        this.board = document.querySelector('.board');
         this.fieldSize = 4;
     }
 
