@@ -1,3 +1,4 @@
+import goblinImage from '../img/goblin.png';
 export default class Character {
     constructor() {
         this.character = document.createElement('img');
