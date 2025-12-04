@@ -1,3 +1,5 @@
+import Board from './Board';
+import Character from './Character';
 export default class GamePlay {
     constructor() {
         this.size = 4;
